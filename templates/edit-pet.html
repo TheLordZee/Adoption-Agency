@@ -11,18 +11,6 @@ Edit Pet
         <div class="col-md-8">
         <form method="POST">
             {{ form.hidden_tag() }}
-            <!-- {% for field in form
-                if field.widget.input_type !=   'hidden' %}
-            <div class="form-group">
-                {{field.label}}
-                {{field(class_="form-control")}}
-                {% for err in field.errors %}
-                <small class="form-text text-danger">
-                    {{err}}
-                </small>
-                {% endfor %}
-            </div>
-            {% endfor %} -->
             {{form.name.label}}
             {{form.name(class_="form-control")}}
             {{form.species.label}}
@@ -37,7 +25,7 @@ Edit Pet
             {{form.available(class_="d-block")}}
         
             <button class="btn btn-info d-block mt-2">Submit</button>
-            <a href="/pets{{pet.id}}" class="btn btn-secondary mt-2">Return</a>
+            <a href="/pets/{{pet.id}}" class="btn btn-secondary mt-2">Return</a>
         </form>
     </div>
     </div>
