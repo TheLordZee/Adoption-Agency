@@ -31,3 +31,6 @@ class Pet(db.Model):
     available = db.Column(db.Boolean,
                             nullable=False,
                             default=True)
+    
+    def __repr__(self):
+        return f"<Pet {self.id} Name={self.name} Age={self.age} Species={self.species} Photo Url={self.photo_url} Notes={self.notes} Available={self.available}>"
