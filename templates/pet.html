@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{pet.name}}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="display-1">
+        {{pet.name}}
+    </h1>
+    <img src="{{pet.photo_url}}" alt="" class="w-50">
+    <h2>Species: {{pet.species}}</h2>
+    {% if pet.age %}
+    <h2>Age: {{pet.age}}</h2>
+    {% endif %}
+    <h2>Available: {{pet.available}} </h2>
+    <h2>Notes:</h2>
+    {% if pet.notes %}
+    <p class="h3">{{pet.notes}}</p>
+    {% else %}
+    <p class="h3">None</p>
+    {% endif %}
+    <a href="/pets/{{pet.id}}/edit" class="btn btn-primary btn-lg">Edit</a>
+    <a href="/" class="btn btn-lg btn-secondary">Return</a>
+</div>
+{% endblock %}

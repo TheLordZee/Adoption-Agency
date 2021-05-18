@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/static/app.css">
+{% endblock %}
+
+{% block content %}
+<h1 class='display-1'>Pets</h1>
+<ul>
+    <li>
+        <a href="/pets/new" class="text-dark">Put a Pet Up for Adoption</a>
+    </li>
+</ul>
+<div class="container">
+    <div class="row align-items-center">
+    {% for pet in pets %}
+    <div class="col-sm-6 col-xl-3">
+    <div class="card">
+        <a href="/pets/{{pet.id}}"></a>
+        <img src="{{pet.photo_url}}" alt="">
+        <div class="card-body">
+            <h5 class="card-title">{{pet.name}}</h5>
+            <p class="card-text">{{pet.notes}}</p>
+            <ul class="list-group list-group-flush">
+                {% if pet.available == True %}
+                <li class="list-group-item h6">{{pet.name}} is available!</li>
+                {% else %}
+                <li class="list-group-item text-muted">{{pet.name}} is not currently available!</li>
+                {% endif %}
+              </ul>
+        </div>
+    </div>
+    </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}

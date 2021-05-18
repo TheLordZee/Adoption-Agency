@@ -22,7 +22,8 @@ class Pet(db.Model):
     species = db.Column(db.Text,
                         nullable=False)
     
-    photo_url = db.Column(db.Text)
+    photo_url = db.Column(db.Text,
+                            default='https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg')
 
     age = db.Column(db.Integer)
 
